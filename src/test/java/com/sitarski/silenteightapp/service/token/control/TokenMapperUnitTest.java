@@ -3,6 +3,8 @@ package com.sitarski.silenteightapp.service.token.control;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 class TokenMapperUnitTest {
 
     @InjectMocks
