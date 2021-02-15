@@ -1,4 +1,4 @@
-package com.sitarski.silenteightapp.configuration.entity;
+package com.sitarski.silenteightapp.configuration.swagger.entity;
 
 public class SwaggerTags {
 
