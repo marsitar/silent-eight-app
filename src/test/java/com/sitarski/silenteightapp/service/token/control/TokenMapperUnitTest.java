@@ -16,7 +16,7 @@ class TokenMapperUnitTest {
     private TokenMapper tokenMapper;
 
     @Test
-    void getTokens_inputNullArgument_assertFieldsAreNull() {
+    void getToTokenDto_inputNullArgument_assertFieldsAreNull() {
         //given
         Token token = null;
         //when
@@ -27,7 +27,7 @@ class TokenMapperUnitTest {
     }
 
     @Test
-    void getTokens_inputEmptyObject_assertFieldsAreNull() {
+    void getToTokenDto_inputEmptyObject_assertFieldsAreNull() {
         //given
         Token token = new Token();
         //when
@@ -38,7 +38,7 @@ class TokenMapperUnitTest {
     }
 
     @Test
-    void getTokens_inputFirstCorrectObject_assertFieldsAreMapped() {
+    void getToTokenDto_inputFirstCorrectObject_assertFieldsAreMapped() {
         //given
         GenderType genderType = GenderType.FEMALE;
         String name = "Lyssa";
@@ -51,7 +51,7 @@ class TokenMapperUnitTest {
     }
 
     @Test
-    void getTokens_inputSecondCorrectObject_assertFieldsAreMapped() {
+    void getToTokenDto_inputSecondCorrectObject_assertFieldsAreMapped() {
         //given
         GenderType genderType = GenderType.MALE;
         String name = "Aldric";
