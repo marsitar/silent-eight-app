@@ -1,4 +1,4 @@
-package com.sitarski.silenteightapp.rest.gender.boundary;
+package com.sitarski.silenteightapp.rest.token.boundary;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
