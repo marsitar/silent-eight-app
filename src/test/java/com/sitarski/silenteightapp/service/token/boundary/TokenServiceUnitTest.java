@@ -1,15 +1,21 @@
 package com.sitarski.silenteightapp.service.token.boundary;
 
+import com.sitarski.silenteightapp.common.entity.GenderType;
 import com.sitarski.silenteightapp.repository.token.boundary.TokenRepository;
+import com.sitarski.silenteightapp.repository.token.entity.Token;
+import com.sitarski.silenteightapp.rest.token.entity.TokenDto;
+import com.sitarski.silenteightapp.service.token.control.TokenMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 class TokenServiceUnitTest {
 
     @Mock
@@ -28,14 +34,14 @@ class TokenServiceUnitTest {
         List<Token> maleTokens = prepareMaleTokens();
         List<TokenDto> femaleTokenDtos = prepareFemaleDtoTokens();
         List<TokenDto> maleTokenDtos = prepareMaleDtoTokens();
-        when(tokenRepository.findAllByGender(GenderType.FEMALE).thenReturn(femaleTokens);
-        when(tokenRepository.findAllByGender(GenderType.MALE).thenReturn(maleTokens);
-        when(tokenMapper.mapToTokenDto(femaleTokens.get(0)).thenReturn(femaleTokenDtos.get(0));
-        when(tokenMapper.mapToTokenDto(femaleTokens.get(1)).thenReturn(femaleTokenDtos.get(1));
-        when(tokenMapper.mapToTokenDto(femaleTokens.get(2)).thenReturn(femaleTokenDtos.get(2));
-        when(tokenMapper.mapToTokenDto(maleTokens.get(0)).thenReturn(maleTokenDtos.get(0));
-        when(tokenMapper.mapToTokenDto(maleTokens.get(1)).thenReturn(maleTokenDtos.get(1));
-        when(tokenMapper.mapToTokenDto(maleTokens.get(2)).thenReturn(maleTokenDtos.get(2));
+        when(tokenRepository.findAllByGender(GenderType.FEMALE)).thenReturn(femaleTokens);
+        when(tokenRepository.findAllByGender(GenderType.MALE)).thenReturn(maleTokens);
+        when(tokenMapper.mapToTokenDto(femaleTokens.get(0))).thenReturn(femaleTokenDtos.get(0));
+        when(tokenMapper.mapToTokenDto(femaleTokens.get(1))).thenReturn(femaleTokenDtos.get(1));
+        when(tokenMapper.mapToTokenDto(femaleTokens.get(2))).thenReturn(femaleTokenDtos.get(2));
+        when(tokenMapper.mapToTokenDto(maleTokens.get(0))).thenReturn(maleTokenDtos.get(0));
+        when(tokenMapper.mapToTokenDto(maleTokens.get(1))).thenReturn(maleTokenDtos.get(1));
+        when(tokenMapper.mapToTokenDto(maleTokens.get(2))).thenReturn(maleTokenDtos.get(2));
         //when
         List<TokenDto> tokens = tokenService.getTokens();
         //then
