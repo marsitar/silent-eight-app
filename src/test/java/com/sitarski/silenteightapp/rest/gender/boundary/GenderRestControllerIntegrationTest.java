@@ -101,7 +101,7 @@ class GenderRestControllerIntegrationTest {
         String endpointURL = "/rest/api/genders/";
         URI urlAddress = new URI(endpointURL);
         String algorithmType = AlgoithmType.ALL.toString();
-        String name = "Jan Maria Rokita";
+        String name = "Renado Alyse Rokita";
         //when
         ResultActions resultAction = mvc.perform(get(urlAddress)
                 .param("algorithmType", algorithmType)
@@ -125,7 +125,7 @@ class GenderRestControllerIntegrationTest {
         String endpointURL = "/rest/api/genders/";
         URI urlAddress = new URI(endpointURL);
         String algorithmType = AlgoithmType.ALL.toString();
-        String name = "Jan Andrzej Rokita";
+        String name = "Rodrigo Roosevelt Rokita";
         //when
         ResultActions resultAction = mvc.perform(get(urlAddress)
                 .param("algorithmType", algorithmType)
