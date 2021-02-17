@@ -29,7 +29,7 @@ public class AlgorithmHelper {
         return Match(genders.size()).of(
                 Case($(0), new GenderDto(GenderType.INCONCLUSIVE)),
                 Case($(1), genders.get(0)),
-                Case($(), () -> findTheMostPopularGenderInVariedCollection(groupedGendersResult))));
+                Case($(), () -> findTheMostPopularGenderInVariedCollection(groupedGendersResult)));
     }
 
     private GenderDto findTheMostPopularGenderInVariedCollection(List<Map.Entry<GenderDto, Long>> groupedGendersResult){

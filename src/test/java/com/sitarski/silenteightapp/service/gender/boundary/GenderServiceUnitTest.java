@@ -5,11 +5,14 @@ import com.sitarski.silenteightapp.common.entity.GenderType;
 import com.sitarski.silenteightapp.repository.gender.boundary.GenderRepository;
 import com.sitarski.silenteightapp.repository.gender.entity.Gender;
 import com.sitarski.silenteightapp.rest.gender.entity.GenderDto;
+import com.sitarski.silenteightapp.service.gender.control.AlgorithmHelper;
 import com.sitarski.silenteightapp.service.gender.control.GenderMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -22,6 +25,9 @@ class GenderServiceUnitTest {
 
     @Mock
     private GenderMapper genderMapper;
+
+    @Mock
+    private AlgorithmHelper algorithmHelper;
 
     @InjectMocks
     private GenderService genderService;
@@ -36,6 +42,7 @@ class GenderServiceUnitTest {
         GenderDto genderDto = new GenderDto(GenderType.FEMALE);
         when(genderRepository.findGenderByName(name)).thenReturn(gender);
         when(genderMapper.mapToGenderDto(gender)).thenReturn(genderDto);
+        when(algorithmHelper.findTheMostPopularGenderResult(List.of(genderDto))).thenReturn(genderDto);
         //when
         GenderDto generatedGenderDto = genderService.getGenderByAlgorithmAndName(algorithmType, name);
         //then
@@ -51,6 +58,7 @@ class GenderServiceUnitTest {
         GenderDto genderDto = new GenderDto(GenderType.MALE);
         when(genderRepository.findGenderByName(name)).thenReturn(gender);
         when(genderMapper.mapToGenderDto(gender)).thenReturn(genderDto);
+        when(algorithmHelper.findTheMostPopularGenderResult(List.of(genderDto))).thenReturn(genderDto);
         //when
         GenderDto generatedGenderDto = genderService.getGenderByAlgorithmAndName(algorithmType, name);
         //then
@@ -66,6 +74,7 @@ class GenderServiceUnitTest {
         GenderDto genderDto = new GenderDto(GenderType.INCONCLUSIVE);
         when(genderRepository.findGenderByName(name)).thenReturn(gender);
         when(genderMapper.mapToGenderDto(gender)).thenReturn(genderDto);
+        when(algorithmHelper.findTheMostPopularGenderResult(List.of(genderDto))).thenReturn(genderDto);
         //when
         GenderDto generatedGenderDto = genderService.getGenderByAlgorithmAndName(algorithmType, name);
         //then
@@ -90,6 +99,7 @@ class GenderServiceUnitTest {
         when(genderMapper.mapToGenderDto(genderInconclusive)).thenReturn(genderInconclusiveDto);
         when(genderMapper.mapToGenderDto(genderMale)).thenReturn(genderMaleDto);
         when(genderMapper.mapToGenderDto(genderFemale)).thenReturn(genderFemaleDto);
+        when(algorithmHelper.findTheMostPopularGenderResult(List.of(genderMaleDto, genderFemaleDto, genderInconclusiveDto))).thenReturn(genderInconclusiveDto);
         //when
         GenderDto genderDto = genderService.getGenderByAlgorithmAndName(algorithmType, name);
         //then
@@ -111,6 +121,7 @@ class GenderServiceUnitTest {
         when(genderRepository.findGenderByName(dividedName[2])).thenReturn(genderInconclusive);
         when(genderMapper.mapToGenderDto(genderInconclusive)).thenReturn(genderInconclusiveDto);
         when(genderMapper.mapToGenderDto(genderMale)).thenReturn(genderMaleDto);
+        when(algorithmHelper.findTheMostPopularGenderResult(List.of(genderMaleDto, genderMaleDto, genderInconclusiveDto))).thenReturn(genderMaleDto);
         //when
         GenderDto genderDto = genderService.getGenderByAlgorithmAndName(algorithmType, name);
         //then
