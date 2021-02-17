@@ -6,6 +6,7 @@ import com.sitarski.silenteightapp.rest.gender.entity.GenderDto;
 import com.sitarski.silenteightapp.service.gender.boundary.GenderService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,7 @@ public class GenderRestController {
     }
 
     @GetMapping(value = "/", produces = "application/json")
-    public GenderDto getGenderByAlgorithmAndName(@RequestParam("algorithmType") AlgorithmType algorithmType, @RequestParam("name") String name) {
+    public GenderDto getGenderByAlgorithmAndName(@NonNull  @RequestParam("algorithmType") AlgorithmType algorithmType, @NonNull @RequestParam("name") String name) {
         GenderDto genderDto = genderService.getGenderByAlgorithmAndName(algorithmType, name);
         return genderDto;
     }
