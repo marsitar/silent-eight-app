@@ -35,4 +35,11 @@ public class GenderDto {
     public int hashCode() {
         return Objects.hash(genderType);
     }
+
+    @Override
+    public String toString() {
+        return "GenderDto{" +
+                "genderType=" + genderType +
+                '}';
+    }
 }
