@@ -37,6 +37,9 @@ public class TokenService {
         List<TokenDto> tokens = Stream.concat(femaleTokens.stream(), maleTokens.stream())
                 .map(tokenMapper::mapToTokenDto)
                 .collect(Collectors.toList());
+
+        logger.debug("getTokens() - tokens has been get");
+
         return tokens;
     }
 
