@@ -25,7 +25,6 @@ public class AlgorithmHelper {
                 .sorted(Collections.reverseOrder(Comparator.comparing(Map.Entry::getValue)))
                 .collect(Collectors.toList());
 
-
         return Match(genders.size()).of(
                 Case($(0), new GenderDto(GenderType.INCONCLUSIVE)),
                 Case($(1), genders.stream().findFirst().orElse(null)),
