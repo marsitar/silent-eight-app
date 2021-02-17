@@ -45,7 +45,6 @@ public class TokenRepository {
                 tokens.add(token);
             }
         } catch (IOException iOException) {
-            iOException.printStackTrace();
             logger.error("findAllByGender(genderType={}) - tokens file not found", genderType);
         }
 
