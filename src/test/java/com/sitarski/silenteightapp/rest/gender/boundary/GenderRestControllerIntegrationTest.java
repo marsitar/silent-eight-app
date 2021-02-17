@@ -2,7 +2,9 @@ package com.sitarski.silenteightapp.rest.gender.boundary;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sitarski.silenteightapp.common.entity.AlgorithmType;
 import com.sitarski.silenteightapp.common.entity.GenderType;
+import com.sitarski.silenteightapp.rest.gender.entity.GenderDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -12,6 +14,7 @@ import org.springframework.test.web.servlet.ResultActions;
 
 import java.net.URI;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -28,12 +31,12 @@ class GenderRestControllerIntegrationTest {
         //given
         String endpointURL = "/rest/api/genders/";
         URI urlAddress = new URI(endpointURL);
-        String algorithmType = AlgoithmType.FIRST.toString();
+        String algorithmType = AlgorithmType.FIRST.toString();
         String name = "Alexine";
         //when
         ResultActions resultAction = mvc.perform(get(urlAddress)
                 .param("algorithmType", algorithmType)
-                .param("names", name));
+                .param("name", name));
         //then
         String resultContent = resultAction
                 .andExpect(status().isOk())
@@ -43,7 +46,7 @@ class GenderRestControllerIntegrationTest {
 
         GenderDto genderDto = convertGenderDtoJsonToJavaObject(resultContent);
 
-        assertThat(genderDto.geGenderType()).isEqualTo(GenderType.MALE);
+        assertThat(genderDto.getGenderType()).isEqualTo(GenderType.FEMALE);
     }
 
     @Test
@@ -52,12 +55,12 @@ class GenderRestControllerIntegrationTest {
         //given
         String endpointURL = "/rest/api/genders/";
         URI urlAddress = new URI(endpointURL);
-        String algorithmType = AlgoithmType.FIRST.toString();
+        String algorithmType = AlgorithmType.FIRST.toString();
         String name = "Roderic";
         //when
         ResultActions resultAction = mvc.perform(get(urlAddress)
                 .param("algorithmType", algorithmType)
-                .param("names", name));
+                .param("name", name));
         //then
         String resultContent = resultAction
                 .andExpect(status().isOk())
@@ -67,7 +70,7 @@ class GenderRestControllerIntegrationTest {
 
         GenderDto genderDto = convertGenderDtoJsonToJavaObject(resultContent);
 
-        assertThat(genderDto.geGenderType()).isEqualTo(GenderType.MALE);
+        assertThat(genderDto.getGenderType()).isEqualTo(GenderType.MALE);
     }
 
     @Test
@@ -76,12 +79,12 @@ class GenderRestControllerIntegrationTest {
         //given
         String endpointURL = "/rest/api/genders/";
         URI urlAddress = new URI(endpointURL);
-        String algorithmType = AlgoithmType.FIRST.toString();
+        String algorithmType = AlgorithmType.FIRST.toString();
         String name = "Aaaaa";
         //when
         ResultActions resultAction = mvc.perform(get(urlAddress)
                 .param("algorithmType", algorithmType)
-                .param("names", name));
+                .param("name", name));
         //then
         String resultContent = resultAction
                 .andExpect(status().isOk())
@@ -91,7 +94,7 @@ class GenderRestControllerIntegrationTest {
 
         GenderDto genderDto = convertGenderDtoJsonToJavaObject(resultContent);
 
-        assertThat(genderDto.geGenderType()).isEqualTo(GenderType.INCONCLUSIVE);
+        assertThat(genderDto.getGenderType()).isEqualTo(GenderType.INCONCLUSIVE);
     }
 
     @Test
@@ -100,12 +103,12 @@ class GenderRestControllerIntegrationTest {
         //given
         String endpointURL = "/rest/api/genders/";
         URI urlAddress = new URI(endpointURL);
-        String algorithmType = AlgoithmType.ALL.toString();
+        String algorithmType = AlgorithmType.ALL.toString();
         String name = "Renado Alyse Rokita";
         //when
         ResultActions resultAction = mvc.perform(get(urlAddress)
                 .param("algorithmType", algorithmType)
-                .param("names", name));
+                .param("name", name));
         //then
         String resultContent = resultAction
                 .andExpect(status().isOk())
@@ -115,7 +118,7 @@ class GenderRestControllerIntegrationTest {
 
         GenderDto genderDto = convertGenderDtoJsonToJavaObject(resultContent);
 
-        assertThat(genderDto.geGenderType()).isEqualTo(GenderType.INCONCLUSIVE);
+        assertThat(genderDto.getGenderType()).isEqualTo(GenderType.INCONCLUSIVE);
     }
 
     @Test
@@ -124,12 +127,12 @@ class GenderRestControllerIntegrationTest {
         //given
         String endpointURL = "/rest/api/genders/";
         URI urlAddress = new URI(endpointURL);
-        String algorithmType = AlgoithmType.ALL.toString();
+        String algorithmType = AlgorithmType.ALL.toString();
         String name = "Rodrigo Roosevelt Rokita";
         //when
         ResultActions resultAction = mvc.perform(get(urlAddress)
                 .param("algorithmType", algorithmType)
-                .param("names", name));
+                .param("name", name));
         //then
         String resultContent = resultAction
                 .andExpect(status().isOk())
@@ -139,7 +142,7 @@ class GenderRestControllerIntegrationTest {
 
         GenderDto genderDto = convertGenderDtoJsonToJavaObject(resultContent);
 
-        assertThat(genderDto.geGenderType()).isEqualTo(GenderType.MALE);
+        assertThat(genderDto.getGenderType()).isEqualTo(GenderType.MALE);
     }
 
 

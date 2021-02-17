@@ -1,5 +1,5 @@
 package com.sitarski.silenteightapp.common.entity;
 
-public enum GenderType {
-    MALE,FEMALE,INCONCLUSIVE
+public enum AlgorithmType {
+    FIRST,ALL
 }
