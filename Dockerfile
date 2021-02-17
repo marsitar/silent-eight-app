@@ -6,6 +6,6 @@ RUN mvn -f ./pom.xml clean validate compile test package
 
 # Stage 2
 FROM openjdk:11-jdk-buster
-VOLUME /tmp
-COPY target/silent-eight-app-0.0.1-SNAPSHOT.jar .
-ENTRYPOINT ["java","-jar","/silent-eight-app-0.0.1-SNAPSHOT.jar"]
+ADD target/silent-eight-app-0.0.1-SNAPSHOT.jar .
+EXPOSE 8080
+CMD java -jar silent-eight-app-0.0.1-SNAPSHOT.jar
