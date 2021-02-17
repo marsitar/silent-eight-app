@@ -28,7 +28,7 @@ public class AlgorithmHelper {
 
         return Match(genders.size()).of(
                 Case($(0), new GenderDto(GenderType.INCONCLUSIVE)),
-                Case($(1), genders.get(0)),
+                Case($(1), genders.stream().findFirst().orElse(null)),
                 Case($(), () -> findTheMostPopularGenderInVariedCollection(groupedGendersResult)));
     }
 
