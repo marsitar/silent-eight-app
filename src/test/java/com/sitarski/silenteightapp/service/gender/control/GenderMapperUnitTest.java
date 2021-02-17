@@ -1,9 +1,13 @@
 package com.sitarski.silenteightapp.service.gender.control;
 
 import com.sitarski.silenteightapp.common.entity.GenderType;
+import com.sitarski.silenteightapp.repository.gender.entity.Gender;
+import com.sitarski.silenteightapp.rest.gender.entity.GenderDto;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @SpringBootTest
 class GenderMapperUnitTest {
@@ -39,7 +43,7 @@ class GenderMapperUnitTest {
         //when
         GenderDto genderDto = genderMapper.mapToGenderDto(gender);
         //then
-        assertThat(tokenDto.getGenderType()).isEqualTo(genderType);
+        assertThat(genderDto.getGenderType()).isEqualTo(genderType);
     }
 
 }
